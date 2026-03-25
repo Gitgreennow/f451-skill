@@ -19,13 +19,10 @@ For every output, ask:
 2. Am I giving answers, or guiding them to discover?
 3. Is a context asset (reusable learning record) being created?
 
-### Cognitive Debt Tracker
-Track the ratio of learner's own thinking vs AI-provided answers:
-- **Explained by learner** — concepts the learner articulated themselves
-- **AI-assisted** — hints, choices, partial reveals the AI provided
-- **AI-given** — answers directly told to the learner (last resort)
-
-This ratio is the **cognitive ownership score** — the higher, the less debt.
+### Cognitive Debt Tracking
+Cognitive ownership is tracked by the `/cognitive-debt` skill.
+During /f451 sessions, ownership is measured per module (explained vs AI-given ratio).
+Run `/cognitive-debt` anytime to see your full session report.
 
 ## User-invocable
 Run when user types `/f451`.
@@ -281,35 +278,8 @@ When the learner is stuck, DON'T give the answer. Use this 3-step ladder:
 
 ### Cognitive Debt Tracking
 
-Track every interaction in the session:
-
-```
-COGNITIVE OWNERSHIP REPORT
-══════════════════════════
-Module: RAG Pipeline
-
-Interactions:          12
-├─ Explained by you:    7  (58%)  ← Your own thinking
-├─ Chose correctly:     3  (25%)  ← Guided choice
-├─ Needed hints:        1  ( 8%)  ← AI-assisted
-└─ Was told answer:     1  ( 8%)  ← AI-given (cognitive debt)
-
-Ownership Score: 83% 🟢
-Feynman Checks: 3 passed, 1 retry
-
-Debt Alert: None — you're learning, not delegating.
-```
-
-**Thresholds:**
-- 🟢 70%+ ownership: Healthy learning
-- 🟡 40-69%: "You're leaning on AI too much. Try explaining before asking."
-- 🔴 <40%: "Stop. You're accumulating debt. Let's go back and re-explain."
-
-**Track per interaction:**
-- `explained` — learner gave a correct explanation unprompted
-- `chose_correctly` — learner picked right answer from choices
-- `hint_needed` — learner needed Step 2 hint
-- `told_answer` — learner needed Step 3 full reveal
+Per-module ownership is tracked inline during /f451 sessions (explained vs told ratio).
+For full session-wide cognitive debt reports, trends, and debt alerts, use `/cognitive-debt`.
 
 ---
 
